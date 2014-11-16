@@ -72,6 +72,7 @@ module.exports = View.extend({
         'click [data-hook~=dropdown-toggle]': 'handleMenu',
         'click a[href]': 'handleLinkClick',
         'click a img': 'handleImgClick',
+        'click a span': 'handleSpanClick',
         'click main': 'closeNav'
     },
     render: function () {
@@ -116,6 +117,11 @@ module.exports = View.extend({
     },
 
     handleImgClick: function (e) {
+        var aTag = e.target.parentNode;
+        this._handleClick(aTag, e);
+    },
+
+    handleSpanClick: function (e) {
         var aTag = e.target.parentNode;
         this._handleClick(aTag, e);
     },

@@ -52,6 +52,9 @@ body {
   background-color: #fff;
   overflow: hidden;
 }
+.phone-container .navbar {
+  margin-bottom: 0;
+}
 .landscape {
   -ms-transform: matrix(0, -0.9, 0.9, 0, 0, 0);
   -webkit-transform: matrix(0, -0.9, 0.9, 0, 0, 0);
@@ -70,6 +73,9 @@ body {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
+.landscape .phone-container .navbar {
+  display: none;
+}
 .container main {
   padding-bottom: 20px;
 }
@@ -78,6 +84,12 @@ body {
 }
 .scroll-container {
   padding-top: 15px;
+  padding-bottom: 15px;
   height: 400px;
   overflow: scroll;
+}
+#settings-cog {
+  font-size: 29px;
+  padding: 10px;
+  margin-right: -10px;
 }

@@ -17,6 +17,7 @@ module.exports = Router.extend({
         'series/:seriesId/episodes': 'episodes',
         'series/:seriesId/episodes/:episodeId': 'episode',
         'video(/:videoId)': 'feed',
+        'settings': 'settings',
         '(*path)': 'catchAll'
     },
 
@@ -79,6 +80,13 @@ module.exports = Router.extend({
         //         model: model
         //     }));
         // }.bind(this));
+    },
+
+    settings: function () {
+        log('settings');
+        // this.trigger('page', new FeedPage({
+        //     model: app.videos.at(0)
+        // }));
     },
 
     catchAll: function () {
