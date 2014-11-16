@@ -1,5 +1,7 @@
-.embed-responsive.embed-responsive-16by9
-  video.embed-responsive-item(controls, data-hook="video", preload)
-    source(src=model.url, type="video/mp4")
-    | Your browser does not support the <code>video</code> element.
-  //- iframe(src=model.url, frameborder="0", seamless="seamless", allowfullscreen) Your browser does not support iframes.
+div
+  .embed-responsive.embed-responsive-16by9
+    video.embed-responsive-item(controls, data-hook="video", preload)
+      source(src=model.url, type="video/mp4")
+      | Your browser does not support the <code>video</code> element.
+    //- iframe(src=model.url, frameborder="0", seamless="seamless", allowfullscreen) Your browser does not support iframes.
+  .feed-list(data-hook="feed")

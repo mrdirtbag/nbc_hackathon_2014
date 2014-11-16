@@ -17,7 +17,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#feedline-navbar" data-hook="collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="feedline-navbar" data-hook="collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/series">tv</a></li><li><a href="/video">video</a></li><li><a href="/feedline">feedline</a></li></ul></div></div></nav><div class="container"><div class="jumbotron"><div class="row"><div class="col-xs-12 col-sm-6 col-md-8"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><main data-hook="page-container"></main></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-4"><h1>FeedLine</h1><p>El Señor de los Cielos</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#feedline-navbar" data-hook="collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="feedline-navbar" data-hook="collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/series">tv</a></li><li><a href="/video">video</a></li><li><a href="/feedline">feedline</a></li></ul></div></div></nav><div class="container"><div class="row"><div class="col-xs-12 col-sm-6 col-md-8"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><main data-hook="page-container"></main></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-4"><div class="jumbotron"><h1>FeedLine</h1><p>El Señor de los Cielos</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
     };
 
     // head.jade compiled template
@@ -47,7 +47,7 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(model) {
-            buf.push('<div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div>');
+            buf.push('<div><div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div><div data-hook="feed" class="feed-list"></div></div>');
         }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
         return buf.join("");
     };

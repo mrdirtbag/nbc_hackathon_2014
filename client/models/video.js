@@ -1,8 +1,13 @@
 var AmpersandState = require('ampersand-state');
+var Feed = require('./feed');
 // var log = require('bows')('M:Video');
 
 module.exports = AmpersandState.extend({
     type: 'video',
+
+    collections: {
+        feed: Feed
+    },
 
     props: {
         'tmsId': 'string',
