@@ -5,22 +5,6 @@
   padding-top: 50px;
 }
 
-/*.iphone5 {
-  height: 705px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-}
-
-.iphone5-image {
-  background-image: url("../images/iphone5.png");
-  background-repeat: no-repeat;*/
-  /*padding: 100px 50px 50px 50px;*/
-  /*width: 368px;
-  height: 772px;
-  background-size: 368px 772px;
-}*/
-
 .iphone-container {
   z-index: 10;
   background-color: #fff;

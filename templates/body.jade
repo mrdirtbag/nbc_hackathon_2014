@@ -18,6 +18,21 @@ body
             a(href="/videos") videos
           li
             a(href="/feedline") feedline
-
   .container
+    .jumbotron
+      .row
+        .col-xs-12.col-sm-6.col-md-8
+          .content
+            #phone-view
+              .device(data-hook="rotate-target")
+                .phone-container
+                  .container
+                    main(data-hook="page-container")
+        .col-xs-12.col-sm-6.col-md-4
+          h1 FeedLine
+          p El Señor de los Cielos
+          button.btn.btn-primary.btn-lg(data-hook="rotate") Rotate
+
+
+  //- .container
     main(data-hook="page-container")

@@ -43,10 +43,16 @@ module.exports = View.extend({
             type: 'booleanClass',
             hook: 'dropdown-menu',
             name: 'open'
-        }
+        },
+        'rotate': {
+            type: 'booleanClass',
+            hook: 'rotate-target',
+            name: 'landscape'
+        },
     },
     session: {
         collapse: ['boolean', true, true],
+        rotate: ['boolean', true, false],
         menuDropdown: ['boolean', true, false]
     },
     // derived: {
@@ -61,6 +67,7 @@ module.exports = View.extend({
     //     }
     // },
     events: {
+        'click [data-hook~=rotate]': 'handleRotate',
         'click [data-hook~=collapse]': 'handleCollapse',
         'click [data-hook~=dropdown-toggle]': 'handleMenu',
         'click a[href]': 'handleLinkClick',
@@ -125,6 +132,13 @@ module.exports = View.extend({
             // log(aTag.pathname);
             app.navigate(aTag.pathname);
         }
+    },
+
+    handleRotate: function (e) {
+        // log('handleCollapse');
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggle('rotate');
     },
 
     handleCollapse: function (e) {
