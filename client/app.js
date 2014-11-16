@@ -30,7 +30,7 @@ module.exports = {
                 seasonNum: 2,
                 episodeNum: 84,
                 url: 'http://link.theplatform.com/s/HNK2IC/media/P0Anbwja7n_5?feed=Telemundo%20Hackathon',
-                startTime: 1800,
+                startTime: 1805,
                 endTime: 1840,
                 feed: [
                     {
@@ -40,8 +40,14 @@ module.exports = {
                         imageUrl: 'http://d3jubmq7nwu33f.cloudfront.net/images/c25ea33afd5545e381e0f1a92a9b5d88.jpg',
                         // imageCaption: 'Picture of Isidro',
                         feedType: 'image',
-                        time: 5,
+                        time: 1805+ 5,
                         title: "Isidro (Monica's Older Brother)"
+                    },
+                    {
+                        title: 'Remember',
+                        text: "Aurelio stabbed Monica which caused her miscarriage.",
+                        feedType: 'remember',
+                        time: 1805+ 9
                     },
                     {
                         // id: 'string',
@@ -50,8 +56,20 @@ module.exports = {
                         imageUrl: "../images/MonicasSoftSideClip.jpg",
                         // imageCaption: 'Picture of Isidro',
                         feedType: 'video',
-                        time: 25,
+                        time: 1805+ 12,
                         title: "Monica's Soft Side"
+                    },
+                    {
+                        title: 'Tiffany',
+                        text: "I remember when Monica had her miscarriage ... so sad :-(",
+                        feedType: 'comment',
+                        time: 1805+ 18
+                    },
+                    {
+                        title: "Jonathan Lander     @JonnyLand     9/22/14",
+                        text: "No way Aurelio would do that! He is the Lord! #ESDLC",
+                        time: 1805+ 20,
+                        feedType: 'twitter'
                     }
                 ]
             },
@@ -59,7 +77,22 @@ module.exports = {
                 id: '08a8YdJrvj8s',
                 url: 'http://link.theplatform.com/s/HNK2IC/media/08a8YdJrvj8s?feed=Telemundo%20Hackathon',
                 startTime: 15,
-                endTime: 45
+                endTime: 45,
+                feed: [
+
+                    {
+                        title: 'Remember',
+                        text: "Monica remembers her first child and the miscarriage from Aurelio stabbing her.",
+                        feedType: 'remember',
+                        time: 15+ 4
+                    },
+                    {
+                        title: 'Susan Lander     @SueLand     9/22/14',
+                        text: "Goodness the Lord is mean! #ESDLC",
+                        feedType: 'twitter',
+                        time: 15+ 10
+                    }
+                ]
             }
         ]);
 

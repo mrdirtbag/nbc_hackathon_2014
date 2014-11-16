@@ -54,7 +54,7 @@
 
     // includes/videoListItem.jade compiled template
     templatizer["includes"]["videoListItem"] = function tmpl_includes_videoListItem() {
-        return '<div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><img data-hook="media-body-image"/><p data-hook="media-body"></p></div></div>';
+        return '<div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><img data-hook="media-body-image" class="hidden"/><p data-hook="media-body"></p></div></div>';
     };
 
     // includes/videoPage.jade compiled template

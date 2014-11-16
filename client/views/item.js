@@ -29,12 +29,23 @@ module.exports = View.extend({
         'model.text': {
             hook: 'media-body'
         },
-        'model.imageUrl': {
-            hook: 'media-body-image',
-            type: 'attribute',
-            name: 'src'
-        }
+        'model.imageUrl': [
+            {
+                hook: 'media-body-image',
+                type: 'attribute',
+                name: 'src'
+            },
+            {
+                hook: 'media-body-image',
+                type: 'booleanClass',
+                no: 'hidden'
+            },
+        ]
 
+    },
+
+    session: {
+        showItem: ['boolean', true, false]
     },
 
     derived: {
@@ -72,9 +83,17 @@ module.exports = View.extend({
         }
     },
 
-    // initialize: function () {
-    //     log('initialize');
-    // },
+    initialize: function () {
+        log('initialize');
+        window.iv = this;
+        this.listenTo(this.model.collection.parent, 'change:currentTime', this._checkTime);
+    },
+
+    _checkTime: function (currentTime, model) {
+        log(currentTime);
+        if (currentTime >= this.time)
+            this.showItem = true;
+    },
 
     // onSelect: function () {
     //     var route = this.model.route || '/videos/'+this.model.id;

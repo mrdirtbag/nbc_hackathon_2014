@@ -45,11 +45,16 @@ module.exports = VideoView.extend({
 
     render: function () {
         this.renderWithTemplate();
+        var model = this.model;
         var startTime = this.model.startTime;
         this.video = this.queryByHook('video');
         this.video.addEventListener('loadeddata', function () {
             log('loadeddata');
-            this.currentTime = startTime;
+            var video = this;
+            model.currentTime = this.currentTime = startTime;
+            setInterval(function () {
+                model.currentTime = video.currentTime;
+            }, 500);
             // this.play();
         }, false);
         this.renderCollection(this.model.feed, ItemView, this.queryByHook('feed'));
@@ -65,7 +70,7 @@ module.exports = VideoView.extend({
         e.stopPropagation();
         var video = this.video;
         if (video.currentTime < this.model.startTime) {
-            video.currentTime = this.model.startTime;
+            this.model.currentTime = video.currentTime = this.model.startTime;
             video.play();
             me.showNav = false;
         } else {
