@@ -1,0 +1,20 @@
+{
+    "isDev": false,
+    "isSecure": true,
+    "session": {
+        "host": "www.example.com/",
+        "port": 6379,
+        "db": 1,
+        "secret": "bang!",
+        "secure": true
+    },
+    "http": {
+        "listen": "www.example.com/",
+        "port": 3040
+    },
+    "client": {
+        "apiUrl": "http://www.example.com/",
+        "debugMode": false,
+        "tmsApiKey": "hbu35augcd9skdzdrz7njsma"
+    }
+}

@@ -1,0 +1,9 @@
+body {
+  background: #f0f0f0;
+}
+.container main {
+  padding-bottom: 20px;
+}
+.media-thumbnail {
+  height: 90px;
+}
