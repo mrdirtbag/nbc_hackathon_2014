@@ -1,10 +1,11 @@
 .container {
-  background: #e3e3e3;
+  /*background: #e3e3e3;*/
   margin-bottom: 20px;
   padding-bottom: 50px;
+  padding-top: 50px;
 }
 
-.iphone5 {
+/*.iphone5 {
   height: 705px;
   margin-left: auto;
   margin-right: auto;
@@ -13,12 +14,12 @@
 
 .iphone5-image {
   background-image: url("../images/iphone5.png");
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
   /*padding: 100px 50px 50px 50px;*/
-  width: 368px;
+  /*width: 368px;
   height: 772px;
   background-size: 368px 772px;
-}
+}*/
 
 .iphone-container {
   z-index: 10;
@@ -47,6 +48,21 @@
   vertical-align: top;
 }
 
+.device {
+  width: 380px;
+  height: 780px;
+  background-image: url(../images/device-iphone.svg);
+  background-size: 550px 780px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform: scale3d( .65, .65, 1);
+  transform: scale3d( .65, .65, 1);
+  margin-top: -140px;
+  margin-left: 34px;
+}
+
 .phone-container {
   border: 4px solid #000;
   top: 100px;
@@ -55,20 +71,6 @@
   width: 320px;
   height: 568px;
   background-color: #aaa;
-}
-
-.device {
-  width: 380px;
-  height: 780px;
-  background-image: url(../images/device-iphone.svg);
-  background-size: 550px 780px;
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-transform-origin: 50% -5%;
-  /*transform-origin: 50% -5%;*/
-  transform-origin: 50% 50%;
-  -webkit-transform: scale3d( .65, .65, 1);
-  transform: scale3d( .65, .65, 1);
 }
 
 .landscape {
