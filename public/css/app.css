@@ -118,3 +118,41 @@ video {
   background-color: #ccc;
   padding: 0 20px;
 }
+.settings .panel-body h5 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.settings .panel-body h2 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.settings .panel-body {
+  color: #fff;
+  background-color: #330101;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.settings .panel-default>.panel-heading,
+.settings .panel-heading h2,
+.settings .panel-title {
+  color: #fff;
+  background-color: #210101;
+  border-width: 0px;
+  border-radius: 0;
+}
+.settings input[type=checkbox] + label {
+  background: #999;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}
+.settings input[type=checkbox]:checked + label {
+  background: #0080ff;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+}

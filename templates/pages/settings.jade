@@ -1,6 +1,61 @@
 .settings(data-hook="settings")
-  //- nav.navbar.navbar-default
-  h2 Settings
+  .panel.panel-default
+    .panel-heading
+      h1.panel-title Settings
+    .panel-body
+      h2 John Smith
+      h5 Hollywood, CA
 
-  h3
+    .panel-heading
+      h2.panel-title SOCIAL MEDIA
+
+    .panel-body
+      .panel-body
+        img(src="images/twitter-logo.png", height="40")
+        | @JohnSmith
+      .panel-body
+        img(src="images/fb-logo.png", height="40")
+        | /johnsmith
+      .panel-heading
+        h2.panel-title WATCH PREFERENCES
+      .panel-body
+        .container
+          form(role="form")
+            .row
+              fieldset
+                .checkbox.checkbox-circle
+                label
+                  input(type="checkbox", value="")
+                  | ALL
+              .checkbox.checkbox-circle
+                label
+                  input(type="checkbox", value="")
+                  | Reference Episodes
+              .checkbox
+                label
+                  input(type="checkbox" value="")
+                  | Twitter
+              .checkbox
+                label
+                  input(type="checkbox" value="")
+                  | Facebook
+              .checkbox
+                label
+                  input(type="checkbox" value="")
+                  | Behind the Scenes
+              .checkbox
+                label
+                  input(type="checkbox" value="")
+                  | Videos
+              .checkbox
+                label
+                  input(type="checkbox" value="")
+                  | Photos
+              .checkbox
+                label
+                  input(type="checkbox" value="")
+                  | Comments
+
+
+
     a.btn.btn-lg.btn-primary(data-hook="done", role="button") done
