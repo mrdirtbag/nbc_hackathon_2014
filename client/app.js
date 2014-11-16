@@ -31,7 +31,19 @@ module.exports = {
                 episodeNum: 84,
                 url: 'http://link.theplatform.com/s/HNK2IC/media/P0Anbwja7n_5?feed=Telemundo%20Hackathon',
                 startTime: 1800,
-                endTime: 1840
+                endTime: 1840,
+                feed: [
+                    {
+                        // id: 'string',
+                        // text: 'string',
+                        // videoId: 'string',
+                        imageUrl: 'http://d3jubmq7nwu33f.cloudfront.net/images/c25ea33afd5545e381e0f1a92a9b5d88.jpg',
+                        // imageCaption: 'Picture of Isidro',
+                        feedType: 'image',
+                        time: 5,
+                        title: "Isidro (Monica's Older Brother)"
+                    }
+                ]
             },
             {
                 id: '08a8YdJrvj8s',

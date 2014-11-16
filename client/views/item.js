@@ -28,6 +28,11 @@ module.exports = View.extend({
         },
         'model.text': {
             hook: 'media-body'
+        },
+        'model.imageUrl': {
+            hook: 'media-body-image',
+            type: 'attribute',
+            name: 'src'
         }
 
     },
@@ -51,9 +56,9 @@ module.exports = View.extend({
             }
         },
         imageSrc: {
-            deps: ['model.title'],
+            deps: ['model.feedType'],
             fn: function () {
-                return 'http://robohash.org/' + encodeURIComponent(this.model.title) + '?size=64x64';
+                return '../images/Icons_video.png';
             }
         },
         link: {

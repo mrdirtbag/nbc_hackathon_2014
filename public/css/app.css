@@ -95,6 +95,10 @@ body {
 }
 .media {
   margin-left: 10px;
+  margin-right: 10px;
+}
+.media-body img {
+  width: 100%;
 }
 .pageOne h3 {
   padding-left: 10px;
