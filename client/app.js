@@ -42,6 +42,16 @@ module.exports = {
                         feedType: 'image',
                         time: 5,
                         title: "Isidro (Monica's Older Brother)"
+                    },
+                    {
+                        // id: 'string',
+                        // text: 'string',
+                        videoId: '08a8YdJrvj8s',
+                        imageUrl: "../images/MonicasSoftSideClip.jpg",
+                        // imageCaption: 'Picture of Isidro',
+                        feedType: 'video',
+                        time: 25,
+                        title: "Monica's Soft Side"
                     }
                 ]
             },

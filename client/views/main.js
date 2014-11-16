@@ -35,17 +35,17 @@ module.exports = View.extend({
             yes: 'login',
             no: 'logout'
         },
-        'collapse': {
+        'model.collapse': {
             type: 'booleanClass',
             hook: 'collapse-target',
             name: 'collapse'
         },
-        'menuDropdown': {
+        'model.menuDropdown': {
             type: 'booleanClass',
             hook: 'dropdown-menu',
             name: 'open'
         },
-        'rotate': {
+        'model.rotate': {
             type: 'booleanClass',
             hook: 'rotate-target',
             name: 'landscape'
@@ -54,12 +54,17 @@ module.exports = View.extend({
             type: 'booleanClass',
             hook: 'settings',
             no: 'hidden'
+        },
+        'model.showNav': {
+            type: 'booleanClass',
+            hook: 'app-nav',
+            no: 'hidden'
         }
     },
     session: {
-        collapse: ['boolean', true, true],
-        rotate: ['boolean', true, false],
-        menuDropdown: ['boolean', true, false]
+        // collapse: ['boolean', true, true],
+        // rotate: ['boolean', true, false],
+        // menuDropdown: ['boolean', true, false]
     },
     // derived: {
     //     dropdownText: {
@@ -170,7 +175,7 @@ module.exports = View.extend({
         // log('handleCollapse');
         e.preventDefault();
         e.stopPropagation();
-        this.toggle('rotate');
+        this.model.toggle('rotate');
     },
 
     handleCollapse: function (e) {
@@ -178,20 +183,20 @@ module.exports = View.extend({
         e.preventDefault();
         e.stopPropagation();
         this.toggle('collapse');
-        if (this.collapse)
-            this.menuDropdown = false;
+        if (this.model.collapse)
+            this.model.menuDropdown = false;
     },
 
     handleMenu: function (e) {
         // log('handleMenu');
         e.preventDefault();
         e.stopPropagation();
-        this.toggle('menuDropdown');
+        this.model.toggle('menuDropdown');
     },
 
     closeNav: function () {
-        this.collapse = true;
-        this.menuDropdown = false;
+        this.model.collapse = true;
+        this.model.menuDropdown = false;
     },
 
     updateActiveNav: function () {

@@ -13,7 +13,11 @@ module.exports = AmpersandState.extend({
     },
 
     session: {
-        showSettings: ['boolean', true, false]
+        showSettings: ['boolean', true, false],
+        collapse: ['boolean', true, true],
+        rotate: ['boolean', true, false],
+        menuDropdown: ['boolean', true, false],
+        showNav: ['boolean', true, true]
     },
 
     derived: {

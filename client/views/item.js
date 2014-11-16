@@ -58,7 +58,7 @@ module.exports = View.extend({
         imageSrc: {
             deps: ['model.feedType'],
             fn: function () {
-                return '../images/Icons_video.png';
+                return '../images/Icons_'+this.model.feedType+'.png';
             }
         },
         link: {

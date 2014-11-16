@@ -1,3 +1,5 @@
+/* global me */
+
 var VideoView = require('../views/video');
 var templates = require('../templates');
 var ItemView = require('../views/item');
@@ -38,6 +40,7 @@ module.exports = VideoView.extend({
     initialize: function () {
         window.fp = this;
         log('initialize');
+        me.showNav = true;
     },
 
     render: function () {
@@ -47,7 +50,7 @@ module.exports = VideoView.extend({
         this.video.addEventListener('loadeddata', function () {
             log('loadeddata');
             this.currentTime = startTime;
-            this.play();
+            // this.play();
         }, false);
         this.renderCollection(this.model.feed, ItemView, this.queryByHook('feed'));
         if (!this.model.feed.length) {
@@ -64,11 +67,17 @@ module.exports = VideoView.extend({
         if (video.currentTime < this.model.startTime) {
             video.currentTime = this.model.startTime;
             video.play();
+            me.showNav = false;
         } else {
-            if (video.paused)
+            if (video.paused) {
                 video.play();
-            else
+                me.showNav = false;
+            }
+            else {
+                me.showNav = true;
                 video.pause();
+            }
+
         }
     },
 
