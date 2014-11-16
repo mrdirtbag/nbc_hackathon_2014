@@ -56,7 +56,7 @@ module.exports = VideoView.extend({
         this.video.addEventListener('loadeddata', function () {
             log('loadeddata');
             var video = this;
-            model.currentTime = this.currentTime = startTime;
+            model.currentTime = this.currentTime = model.currentTime || startTime;
             setInterval(function () {
                 model.currentTime = video.currentTime;
             }, 500);
