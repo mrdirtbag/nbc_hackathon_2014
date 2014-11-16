@@ -1,0 +1,49 @@
+body {
+	font-family: Helvetica;
+}
+.panel-body h5 {
+
+		margin-top: 0px;
+	margin-bottom: 0px;
+
+}
+.panel-body h2 {
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.panel-body {
+	color: #fff;
+	background-color: #330101; 
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.panel-default>.panel-heading, .panel-heading h2, .panel-title {
+	color: #fff;
+	background-color: #210101;
+	border-width: 0px;
+	border-radius: 0;
+}
+
+input[type=checkbox] {
+/*display:none;*/
+}
+ 
+input[type=checkbox] + label
+{
+background: #999;
+height: 16px;
+width: 16px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+input[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 16px;
+width: 16px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
