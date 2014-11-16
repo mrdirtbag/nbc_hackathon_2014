@@ -47,7 +47,7 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(model) {
-            buf.push('<div><div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div><div data-hook="feed" class="feed-list"></div></div>');
+            buf.push('<div><div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div><div class="feed-container"><div data-hook="feed" class="feed"></div></div></div>');
         }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
         return buf.join("");
     };

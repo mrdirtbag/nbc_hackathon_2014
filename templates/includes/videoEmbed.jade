@@ -4,4 +4,5 @@ div
       source(src=model.url, type="video/mp4")
       | Your browser does not support the <code>video</code> element.
     //- iframe(src=model.url, frameborder="0", seamless="seamless", allowfullscreen) Your browser does not support iframes.
-  .feed-list(data-hook="feed")
+  .feed-container
+    .feed(data-hook="feed")
