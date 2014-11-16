@@ -91,7 +91,7 @@
 
     // pages/settings.jade compiled template
     templatizer["pages"]["settings"] = function tmpl_pages_settings() {
-        return '<div data-hook="settings" class="settings"><nav class="navbar navbar-default"></nav><h2>Settings</h2><h3><a data-hook="done" role="button" class="btn btn-lg btn-primary">done</a></h3></div>';
+        return '<div data-hook="settings" class="settings"><h2>Settings</h2><h3><a data-hook="done" role="button" class="btn btn-lg btn-primary">done</a></h3></div>';
     };
 
     // pages/videoCollection.jade compiled template
