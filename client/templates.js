@@ -17,7 +17,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#feedline-navbar" data-hook="collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="feedline-navbar" data-hook="collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/series">tv</a></li><li><a href="/videos">videos</a></li><li><a href="/feedline">feedline</a></li></ul></div></div></nav><div class="container"><div class="jumbotron"><div class="row"><div class="col-xs-12 col-sm-6 col-md-8"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><div class="container"><main data-hook="page-container"></main></div></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-4"><h1>FeedLine</h1><p>El Señor de los Cielos</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#feedline-navbar" data-hook="collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="feedline-navbar" data-hook="collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/series">tv</a></li><li><a href="/video">video</a></li><li><a href="/feedline">feedline</a></li></ul></div></div></nav><div class="container"><div class="jumbotron"><div class="row"><div class="col-xs-12 col-sm-6 col-md-8"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><main data-hook="page-container"></main></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-4"><h1>FeedLine</h1><p>El Señor de los Cielos</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
     };
 
     // head.jade compiled template
@@ -40,6 +40,18 @@
         return '<li class="person list-group-item"><img data-hook="avatar" width="40" height="40"/><a data-hook="name"></a><span data-hook="points" class="badge pull-right"></span></li>';
     };
 
+    // includes/videoEmbed.jade compiled template
+    templatizer["includes"]["videoEmbed"] = function tmpl_includes_videoEmbed(locals) {
+        var buf = [];
+        var jade_mixins = {};
+        var jade_interp;
+        var locals_for_with = locals || {};
+        (function(model) {
+            buf.push('<div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div>');
+        }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
+        return buf.join("");
+    };
+
     // includes/videoListItem.jade compiled template
     templatizer["includes"]["videoListItem"] = function tmpl_includes_videoListItem() {
         return '<div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div>';
@@ -50,11 +62,6 @@
         return '<div data-hook="video-page" class="video-page"></div>';
     };
 
-    // pages/collectionDemo.jade compiled template
-    templatizer["pages"]["collectionDemo"] = function tmpl_pages_collectionDemo() {
-        return '<section class="page pageOne"><h2>Collection demo</h2><p>Intelligently rendering collections can be a bit tricky. </p><p><a href="https://github.com/ampersandjs/ampersand-view">ampersand-view\'s</a> <code>renderCollection()</code> method makes it simple.</p><p>The only code required to manage the collection is:</p><pre><code>this.renderCollection(\n   this.collection, \n   PersonView, \n   this.queryByHook(\'people-list\')\n);</code></pre><h3>People container:</h3><ul data-hook="people-list" class="list-group"></ul><p>Try it by clicking the buttons</p><div class="buttons btn-group"><button data-hook="reset" class="btn btn-default">.reset() </button><button data-hook="fetch" class="btn btn-default">.fetch() </button><button data-hook="shuffle" class="btn btn-default">.shuffle() </button><a href="/person/add" class="btn btn-default">Add Person</a></div><p>Events are always managed so you don\'t get any leaks.</p></section>';
-    };
-
     // pages/contentList.jade compiled template
     templatizer["pages"]["contentList"] = function tmpl_pages_contentList(locals) {
         var buf = [];
@@ -62,29 +69,29 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(title) {
-            buf.push('<section class="page pageOne"><h4>' + jade.escape(null == (jade_interp = title) ? "" : jade_interp) + '</h4><div data-hook="content-list" class="media-list"></div></section>');
+            buf.push('<div class="container"><section class="page pageOne"><h4>' + jade.escape(null == (jade_interp = title) ? "" : jade_interp) + '</h4><div data-hook="content-list" class="media-list"></div></section></div>');
         }).call(this, "title" in locals_for_with ? locals_for_with.title : typeof title !== "undefined" ? title : undefined);
         return buf.join("");
     };
 
     // pages/episode.jade compiled template
     templatizer["pages"]["episode"] = function tmpl_pages_episode() {
-        return '<section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li><a data-hook="series"></a></li><li data-hook="episode" class="active"></li></ol><h3>Episode</h3><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div></section>';
+        return '<div class="container"><section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li><a data-hook="series"></a></li><li data-hook="episode" class="active"></li></ol><h3>Episode</h3><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div></section></div>';
     };
 
     // pages/home.jade compiled template
     templatizer["pages"]["home"] = function tmpl_pages_home() {
-        return '<section class="page home"><h2>Welcome to Feedline</h2><h3><a href="/series" role="button" class="btn btn-lg btn-primary">series</a></h3></section>';
+        return '<div class="container"><section class="page home"><h2>Welcome to Feedline</h2><h3><a href="/series" role="button" class="btn btn-lg btn-primary">series</a></h3></section></div>';
     };
 
     // pages/series.jade compiled template
     templatizer["pages"]["series"] = function tmpl_pages_series() {
-        return '<section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li data-hook="series" class="active"></li></ol><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div><h3>Episodes</h3><div data-hook="episode-list" class="media-list"></div></section>';
+        return '<div class="container"><section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li data-hook="series" class="active"></li></ol><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div><h3>Episodes</h3><div data-hook="episode-list" class="media-list"></div></section></div>';
     };
 
     // pages/videoCollection.jade compiled template
     templatizer["pages"]["videoCollection"] = function tmpl_pages_videoCollection() {
-        return '<section class="page pageOne"><h4>available videos</h4><div data-hook="video-list"></div></section>';
+        return '<div class="container"><section class="page pageOne"><h4>available videos</h4><div data-hook="video-list"></div></section></div>';
     };
 
     return templatizer;

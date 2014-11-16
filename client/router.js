@@ -5,6 +5,7 @@ var SeriesCollectionPage = require('./pages/seriesCollection');
 var SeriesPage = require('./pages/series');
 var EpisodesPage = require('./pages/episodes');
 var EpisodePage = require('./pages/episode');
+var FeedPage = require('./pages/feed');
 var log = require('bows')('A:Router');
 
 
@@ -15,6 +16,7 @@ module.exports = Router.extend({
         'series/:seriesId(/)': 'series',
         'series/:seriesId/episodes': 'episodes',
         'series/:seriesId/episodes/:episodeId': 'episode',
+        'video(/:videoId)': 'feed',
         '(*path)': 'catchAll'
     },
 
@@ -64,6 +66,19 @@ module.exports = Router.extend({
                 });
             }
         });
+    },
+
+    feed: function () {
+        // id || id = ;
+        this.trigger('page', new FeedPage({
+            model: app.videos.at(0)
+        }));
+        // app.videos.getOrFetch(id, function (err, model) {
+        //     if (err) return log(err);
+        //     this.trigger('page', new VideoPage({
+        //         model: model
+        //     }));
+        // }.bind(this));
     },
 
     catchAll: function () {

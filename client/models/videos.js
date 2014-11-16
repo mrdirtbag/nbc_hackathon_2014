@@ -11,24 +11,11 @@ module.exports = RestCollection.extend({
 
     model: Video,
 
-    comparator: 'origAirDate',
+    // comparator: 'origAirDate',
 
     initialize: function () {
         log('initialize');
-    },
-
-    fetchBSG: function () {
-        log('fetch BSG');
-        var seriesId = '185082';
-        var url = this.url + 'series/'+ seriesId + '/episodes';
-
-        this.fetch({
-            url: url,
-            data: {
-                imageSize: 'Sm',
-                descriptionLang: 'en',
-                api_key: config.tmsApiKey
-            }
-        });
+        if (!this.length)
+            this.add({});
     }
 });
