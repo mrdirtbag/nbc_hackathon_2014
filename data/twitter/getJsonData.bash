@@ -1,6 +1,6 @@
 #!/bin/bash
 TOTAL=$1
-let TOTAL+=4
+let TOTAL+=9
 PAGINATION=TEST
 for i in `seq $1 $TOTAL`;
 do
