@@ -33,6 +33,14 @@ module.exports = {
                 startTime: 1805,
                 endTime: 1840,
                 feed: [
+		    {
+			title: "Interview with lead actors", 
+                        text: "RT @TLMDMediaPR: Nuestro protagonista de la serie @SrDeLosCielosTV habla con @UnNuevoDia sobre la gran final! #ESDLC http://t.co/ClSKFcSK1V",
+
+                        imageUrl: "http://pbs.twimg.com/media/ByI73JbIcAAoMn5.jpg",
+                        feedType: 'image',
+			time: 1804+ 5 
+		    },
                     {
                         // id: 'string',
                         // text: 'string',
