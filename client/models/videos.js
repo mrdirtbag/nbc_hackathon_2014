@@ -1,13 +1,13 @@
 var RestCollection = require('ampersand-rest-collection');
 var Video = require('./video');
-var config = require('clientconfig');
+// var config = require('clientconfig');
 
 // var _ = require('underscore');
 var log = require('bows')('C:Videos');
 
 module.exports = RestCollection.extend({
 
-    url: 'http://data.tmsapi.com/v1/',
+    // url: 'http://data.tmsapi.com/v1/',
 
     model: Video,
 
@@ -15,7 +15,7 @@ module.exports = RestCollection.extend({
 
     initialize: function () {
         log('initialize');
-        if (!this.length)
-            this.add({});
+        // if (!this.length)
+        //     this.add({});
     }
 });

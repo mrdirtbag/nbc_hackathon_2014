@@ -69,17 +69,11 @@ module.exports = Router.extend({
         });
     },
 
-    feed: function () {
-        // id || id = ;
+    feed: function (id) {
+        id = id || 'P0Anbwja7n_5';
         this.trigger('page', new FeedPage({
-            model: app.videos.at(0)
+            model: app.videos.get(id)
         }));
-        // app.videos.getOrFetch(id, function (err, model) {
-        //     if (err) return log(err);
-        //     this.trigger('page', new VideoPage({
-        //         model: model
-        //     }));
-        // }.bind(this));
     },
 
     settings: function () {

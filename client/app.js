@@ -24,7 +24,22 @@ module.exports = {
 
         this.series = new Series();
 
-        this.videos = new Videos();
+        this.videos = new Videos([
+            {
+                id: 'P0Anbwja7n_5',
+                seasonNum: 2,
+                episodeNum: 84,
+                url: 'http://link.theplatform.com/s/HNK2IC/media/P0Anbwja7n_5?feed=Telemundo%20Hackathon',
+                startTime: 1800,
+                endTime: 1840
+            },
+            {
+                id: '08a8YdJrvj8s',
+                url: 'http://link.theplatform.com/s/HNK2IC/media/08a8YdJrvj8s?feed=Telemundo%20Hackathon',
+                startTime: 15,
+                endTime: 45
+            }
+        ]);
 
         // init our URL handlers and the history tracker
         this.router = new Router();

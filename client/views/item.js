@@ -57,9 +57,11 @@ module.exports = View.extend({
             }
         },
         link: {
-            deps: ['model.seriesId','model.tmsId'],
+            deps: ['model.videoId'],
             fn: function () {
-                return '#';
+                if (!this.model.videoId)
+                    return '#';
+                return '/video/'+this.model.videoId;
                 // return '/series/' + this.model.seriesId + '/episodes/' + this.model.tmsId;
             }
         }

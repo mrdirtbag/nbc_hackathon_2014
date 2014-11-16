@@ -10,8 +10,11 @@ module.exports = AmpersandState.extend({
     },
 
     props: {
+        'id': 'string',
         'tmsId': 'string',
         'rootId': 'string',
+        'startTime': 'number',
+        'endTime': 'number',
         'seriesId': 'string',
         'episodeTitle': 'string',
         'shortDescription': 'string',
