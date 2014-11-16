@@ -16,6 +16,10 @@ module.exports = VideoView.extend({
         'click [data-hook~=video]': 'play',
     },
 
+    session: {
+        'started': 'boolean'
+    },
+
     derived: {
         // width: {
         //     deps: ['model.width', 'multiplier'],
@@ -57,6 +61,9 @@ module.exports = VideoView.extend({
             }, 500);
             // this.play();
         }, false);
+    },
+
+    renderFeed: function () {
         this.renderCollection(this.model.feed, ItemView, this.queryByHook('feed'));
         if (!this.model.feed.length) {
             log('adding default series');
@@ -69,6 +76,8 @@ module.exports = VideoView.extend({
         e.preventDefault();
         e.stopPropagation();
         var video = this.video;
+        if (!this.started)
+            this.renderFeed();
         if (video.currentTime < this.model.startTime) {
             this.model.currentTime = video.currentTime = this.model.startTime;
             video.play();

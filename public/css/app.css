@@ -39,8 +39,8 @@ body {
   -moz-transform: scale(0.9);
   -ms-transform: scale(0.9);
   transform: scale(0.9);
-  margin-top: -80px;
-  margin-left: 40px;
+  margin-top: -50px;
+  margin-left: 100px;
 }
 .phone-container {
   border: 4px solid #000;
@@ -155,4 +155,7 @@ video {
   width: 16px;
   display: inline-block;
   padding: 0 0 0 0px;
+}
+.home {
+  padding: 0 15px;
 }
