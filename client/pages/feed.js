@@ -74,6 +74,8 @@ module.exports = VideoView.extend({
     startFeed: function () {
         var feed = this.model.feed;
         this.interval = setInterval(function () {
+            if (feed.length > 10)
+                return clearInterval(this.interval);
             feed.add({
                 title: _.uniqueId('item'),
                 text: 'blah blah blah blah blah and more blah'
