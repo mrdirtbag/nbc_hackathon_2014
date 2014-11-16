@@ -1,6 +1,6 @@
 var PageView = require('./base');
 var templates = require('../templates');
-var EpisodeView = require('../views/video');
+var EpisodeView = require('../views/image');
 var config = require('clientconfig');
 
 var log = require('bows')('P:Series');

@@ -103,6 +103,9 @@ body {
 .pageOne h3 {
   padding-left: 10px;
 }
+.pageOne h4 {
+  padding-left: 10px;
+}
 .pageOne .scroll-container {
   height: 310px;
 }
@@ -158,4 +161,7 @@ video {
 }
 .home {
   padding: 0 15px;
+}
+.image-view {
+  width: 100%;
 }

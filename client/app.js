@@ -41,7 +41,7 @@ module.exports = {
                         // imageCaption: 'Picture of Isidro',
                         feedType: 'image',
                         time: 1805+ 5,
-                        title: "Isidro (Monica's Older Brother)"
+                        title: "Monica's son is named after Isidro (Monica's Older Brother)"
                     },
                     {
                         title: 'Remember',

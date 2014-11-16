@@ -44,6 +44,7 @@ module.exports = AmpersandModel.extend({
             url: this.url(),
             data: {
                 imageSize: 'Sm',
+                season: 2,
                 descriptionLang: 'en',
                 api_key: config.tmsApiKey
             }

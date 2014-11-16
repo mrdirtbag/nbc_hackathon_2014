@@ -17,7 +17,8 @@ module.exports = VideoView.extend({
     },
 
     session: {
-        'started': 'boolean'
+        started: ['boolean', true, false],
+        rendered: ['boolean', true, false]
     },
 
     derived: {
@@ -64,6 +65,8 @@ module.exports = VideoView.extend({
     },
 
     renderFeed: function () {
+        if (this.started) return;
+        this.started = true;
         this.renderCollection(this.model.feed, ItemView, this.queryByHook('feed'));
         if (!this.model.feed.length) {
             log('adding default series');

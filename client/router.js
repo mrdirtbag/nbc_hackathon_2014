@@ -51,22 +51,24 @@ module.exports = Router.extend({
     },
 
     episode: function (seriesId, episodeId) {
-        var self = this;
-        app.series.getOrFetch(seriesId, function (err, series) {
-            if (err) return log(err);
-            log('got series: '+ seriesId);
-            if (series.episodes.length) {
-                self.trigger('page', new EpisodePage({
-                    model: series.episodes.get(episodeId)
-                }));
-            } else {
-                series.fetchEpisodes(function (collection) {
-                    self.trigger('page', new EpisodePage({
-                        model: collection.get(episodeId)
-                    }));
-                });
-            }
-        });
+        this.feed();
+
+        // var self = this;
+        // app.series.getOrFetch(seriesId, function (err, series) {
+        //     if (err) return log(err);
+        //     log('got series: '+ seriesId);
+        //     if (series.episodes.length) {
+        //         self.trigger('page', new EpisodePage({
+        //             model: series.episodes.get(episodeId)
+        //         }));
+        //     } else {
+        //         series.fetchEpisodes(function (collection) {
+        //             self.trigger('page', new EpisodePage({
+        //                 model: collection.get(episodeId)
+        //             }));
+        //         });
+        //     }
+        // });
     },
 
     feed: function (id) {

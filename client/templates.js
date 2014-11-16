@@ -17,7 +17,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><div class="container"><div class="row"><div class="col-xs-12 col-sm-6 col-md-7"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><div data-hook="main-view" class="main-view"><nav data-hook="app-nav" class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#app-navbar" data-hook="app-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">Catch Novela</a></div><div id="app-navbar" data-hook="app-collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/series">tv</a></li><li><a href="/video">video</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a id="settings-cog" href="/settings" role="button"><span class="glyphicon glyphicon-cog"></span><span class="sr-only">settings</span></a></li></ul></div></div></nav><main data-hook="page-container"></main></div><div data-hook="settings"></div></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-5"><div class="jumbotron"><h1>Catch Novela</h1><p>By Señores de la Hackathon</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
+        return '<body><div class="container"><div class="row"><div class="col-xs-12 col-sm-6 col-md-7"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><div data-hook="main-view" class="main-view"><nav data-hook="app-nav" class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#app-navbar" data-hook="app-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">Catch Novela</a></div><div id="app-navbar" data-hook="app-collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/series">tv</a></li><li><a href="/video">video</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a id="settings-cog" href="/settings" role="button"><span class="glyphicon glyphicon-cog"></span><span class="sr-only">settings</span></a></li></ul></div></div></nav><main data-hook="page-container"></main></div><div data-hook="settings"></div></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-5"><div class="jumbotron"><h1>Catch Novela</h1><p>By Señores de la Hackathon</p><br /><h3><dl class="dl-horizontal"><dt>Challenge</dt><dd>Telemundo</dd></dl><dl class="dl-horizontal"><dt>Technologies</dt><dd>ThePlatform</dd><dd>WatchWith</dd><dd>Gracenote</dd><dd>SpreadFast</dd></dl></h3><br /><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
     };
 
     // head.jade compiled template
@@ -28,6 +28,18 @@
     // includes/formInput.jade compiled template
     templatizer["includes"]["formInput"] = function tmpl_includes_formInput() {
         return '<div class="form-group"><label data-hook="label"></label><div data-hook="message-container"><div data-hook="message-text" class="alert alert-danger"></div></div><input class="form-control"/></div>';
+    };
+
+    // includes/image.jade compiled template
+    templatizer["includes"]["image"] = function tmpl_includes_image(locals) {
+        var buf = [];
+        var jade_mixins = {};
+        var jade_interp;
+        var locals_for_with = locals || {};
+        (function(model, imageSrc) {
+            buf.push('<div data-hook="img"><h4>' + jade.escape(null == (jade_interp = model.episodeNum) ? "" : jade_interp) + '</h4><a href="/video"><img' + jade.attr("src", imageSrc, true, false) + ' class="image-view"/></a></div>');
+        }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined, "imageSrc" in locals_for_with ? locals_for_with.imageSrc : typeof imageSrc !== "undefined" ? imageSrc : undefined);
+        return buf.join("");
     };
 
     // includes/person.jade compiled template
@@ -81,7 +93,7 @@
 
     // pages/home.jade compiled template
     templatizer["pages"]["home"] = function tmpl_pages_home() {
-        return '<section class="page home"><h2>Welcome to Catch Novela!</h2><h3><a href="/series" role="button" class="btn btn-lg btn-primary">series</a></h3></section>';
+        return '<section class="page home"><h2>Welcome to</h2><h2>Catch Novela!</h2><h3>Favorite Series</h3><a href="/series/9891050"><img src="../images/001TitleImage.jpg" style="width:100%;"/></a></section>';
     };
 
     // pages/series.jade compiled template
