@@ -47,7 +47,7 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(model) {
-            buf.push('<div><div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div><div class="feed-container"><div data-hook="feed" class="feed"></div></div></div>');
+            buf.push('<div><div class="embed-responsive embed-responsive-16by9"><video controls="controls" data-hook="video" preload="preload" class="embed-responsive-item"><source' + jade.attr("src", model.url, true, false) + ' type="video/mp4"/>Your browser does not support the <code>video</code> element.</video></div><div data-hook="feed" class="scroll-container"></div></div>');
         }).call(this, "model" in locals_for_with ? locals_for_with.model : typeof model !== "undefined" ? model : undefined);
         return buf.join("");
     };
@@ -86,7 +86,7 @@
 
     // pages/series.jade compiled template
     templatizer["pages"]["series"] = function tmpl_pages_series() {
-        return '<div class="container"><section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li data-hook="series" class="active"></li></ol><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div><h3>Episodes</h3><div data-hook="episode-list" class="media-list"></div></section></div>';
+        return '<div class="container"><section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li data-hook="series" class="active"></li></ol><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div><h3>Episodes</h3><div data-hook="episode-list" class="media-list scroll-container"></div></section></div>';
     };
 
     // pages/videoCollection.jade compiled template
