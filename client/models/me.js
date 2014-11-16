@@ -11,6 +11,11 @@ module.exports = AmpersandState.extend({
         uid: ['string'],
         // username: ['string']
     },
+
+    session: {
+        showSettings: ['boolean', true, false]
+    },
+
     derived: {
        avatar: {
             deps: ['id'],

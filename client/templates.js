@@ -17,7 +17,7 @@
 
     // body.jade compiled template
     templatizer["body"] = function tmpl_body() {
-        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#feedline-navbar" data-hook="collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="feedline-navbar" data-hook="collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/series">tv</a></li><li><a href="/video">video</a></li><li><a href="/feedline">feedline</a></li></ul></div></div></nav><div class="container"><div class="row"><div class="col-xs-12 col-sm-6 col-md-8"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#app-navbar" data-hook="app-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="app-navbar" data-hook="app-collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/series">tv</a></li><li><a href="/video">video</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a id="settings-cog" href="/settings" role="button" data-hook="settings"><span class="glyphicon glyphicon-cog"></span><span class="sr-only">settings</span></a></li></ul></div></div></nav><main data-hook="page-container"></main></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-4"><div class="jumbotron"><h1>FeedLine</h1><p>El Señor de los Cielos</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
+        return '<body><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#feedline-navbar" data-hook="collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="feedline-navbar" data-hook="collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/">home</a></li><li><a href="/series">tv</a></li><li><a href="/video">video</a></li><li><a href="/feedline">feedline</a></li></ul></div></div></nav><div class="container"><div class="row"><div class="col-xs-12 col-sm-6 col-md-8"><div class="content"><div id="phone-view"><div data-hook="rotate-target" class="device"><div class="phone-container"><div data-hook="main-view" class="main-view"><nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#app-navbar" data-hook="app-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">feedline</a></div><div id="app-navbar" data-hook="app-collapse-target" class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="/series">tv</a></li><li><a href="/video">video</a></li></ul><ul class="nav navbar-nav navbar-right"><li><a id="settings-cog" href="/settings" role="button"><span class="glyphicon glyphicon-cog"></span><span class="sr-only">settings</span></a></li></ul></div></div></nav><main data-hook="page-container"></main></div><div data-hook="settings"></div></div></div></div></div></div><div class="col-xs-12 col-sm-6 col-md-4"><div class="jumbotron"><h1>FeedLine</h1><p>El Señor de los Cielos</p><button data-hook="rotate" class="btn btn-primary btn-lg">Rotate</button></div></div></div></div></body>';
     };
 
     // head.jade compiled template
@@ -69,14 +69,14 @@
         var jade_interp;
         var locals_for_with = locals || {};
         (function(title) {
-            buf.push('<div class="container"><section class="page pageOne"><h4>' + jade.escape(null == (jade_interp = title) ? "" : jade_interp) + '</h4><div data-hook="content-list" class="media-list"></div></section></div>');
+            buf.push('<section class="page pageOne"><h4>' + jade.escape(null == (jade_interp = title) ? "" : jade_interp) + '</h4><div data-hook="content-list" class="media-list"></div></section>');
         }).call(this, "title" in locals_for_with ? locals_for_with.title : typeof title !== "undefined" ? title : undefined);
         return buf.join("");
     };
 
     // pages/episode.jade compiled template
     templatizer["pages"]["episode"] = function tmpl_pages_episode() {
-        return '<div class="container"><section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li><a data-hook="series"></a></li><li data-hook="episode" class="active"></li></ol><h3>Episode</h3><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div></section></div>';
+        return '<section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li><a data-hook="series"></a></li><li data-hook="episode" class="active"></li></ol><h3>Episode</h3><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div></section>';
     };
 
     // pages/home.jade compiled template
@@ -86,12 +86,17 @@
 
     // pages/series.jade compiled template
     templatizer["pages"]["series"] = function tmpl_pages_series() {
-        return '<div class="container"><section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li data-hook="series" class="active"></li></ol><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div><h3>Episodes</h3><div data-hook="episode-list" class="media-list scroll-container"></div></section></div>';
+        return '<section class="page pageOne"><ol class="breadcrumb"><li><a href="/series">Series</a></li><li data-hook="series" class="active"></li></ol><div class="media"><a href="#" data-hook="media-link" class="media-left"><img src="..." data-hook="media-image" class="media-thumbnail"/></a><div class="media-body"><h4 data-hook="media-heading" class="media-heading"></h4><p data-hook="media-body"></p></div></div><h3>Episodes</h3><div data-hook="episode-list" class="media-list scroll-container"></div></section>';
+    };
+
+    // pages/settings.jade compiled template
+    templatizer["pages"]["settings"] = function tmpl_pages_settings() {
+        return '<div data-hook="settings" class="settings"><nav class="navbar navbar-default"></nav><h2>Settings</h2><h3><a data-hook="done" role="button" class="btn btn-lg btn-primary">done</a></h3></div>';
     };
 
     // pages/videoCollection.jade compiled template
     templatizer["pages"]["videoCollection"] = function tmpl_pages_videoCollection() {
-        return '<div class="container"><section class="page pageOne"><h4>available videos</h4><div data-hook="video-list"></div></section></div>';
+        return '<section class="page pageOne"><h4>available videos</h4><div data-hook="video-list"></div></section>';
     };
 
     return templatizer;

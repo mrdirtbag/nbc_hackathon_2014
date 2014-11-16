@@ -8,6 +8,7 @@ var ViewSwitcher = require('ampersand-view-switcher');
 var _ = require('underscore');
 var domify = require('domify');
 var dom = require('ampersand-dom');
+var SettingsView = require('./settings');
 var templates = require('../templates');
 // var tracking = require('../helpers/metrics');
 var setFavicon = require('favicon-setter');
@@ -49,6 +50,11 @@ module.exports = View.extend({
             hook: 'rotate-target',
             name: 'landscape'
         },
+        'model.showSettings': {
+            type: 'booleanClass',
+            hook: 'settings',
+            no: 'hidden'
+        }
     },
     session: {
         collapse: ['boolean', true, true],
@@ -102,6 +108,19 @@ module.exports = View.extend({
         return this;
     },
 
+    subviews: {
+        settings: {
+            hook: 'settings',
+            waitFor: 'model.showSettings',
+            prepareView: function (el) {
+                return new SettingsView({
+                    el: el,
+                    model: this.model
+                });
+            }
+        }
+    },
+
     handleNewPage: function (view) {
         // tell the view switcher to render the new one
         this.pageSwitcher.set(view);
@@ -123,6 +142,13 @@ module.exports = View.extend({
 
     handleSpanClick: function (e) {
         var aTag = e.target.parentNode;
+
+        if (aTag.pathname === '/settings') {
+            log('settings');
+            this.model.toggle('showSettings');
+            e.preventDefault();
+            return;
+        }
         this._handleClick(aTag, e);
     },
 
