@@ -7,18 +7,13 @@ module.exports = AmpersandState.extend({
     // idAttribute: 'tmsId',
 
     props: {
-        'id': 'string',
-        'text': 'string',
-        'rootId': 'string',
-        'seriesId': 'string',
-        'episodeTitle': 'string',
-        'shortDescription': 'string',
-        'origAirDate': 'string',
-        'seasonNum': 'number',
-        'episodeNum': 'number',
-        'entityType': 'string',
-        'subType': "string",
-        'preferredImage': 'object',
-        'title': 'string'
+        id: 'string',
+        text: 'string',
+        videoId: 'string',
+        imageUrl: 'string',
+        feedType: 'string',
+        time: 'number',
+        preferredImage: 'object',
+        title: 'string'
     }
 });

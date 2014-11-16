@@ -24,7 +24,44 @@ module.exports = {
 
         this.series = new Series();
 
-        this.videos = new Videos();
+        this.videos = new Videos([
+            {
+                id: 'P0Anbwja7n_5',
+                seasonNum: 2,
+                episodeNum: 84,
+                url: 'http://link.theplatform.com/s/HNK2IC/media/P0Anbwja7n_5?feed=Telemundo%20Hackathon',
+                startTime: 1800,
+                endTime: 1840,
+                feed: [
+                    {
+                        // id: 'string',
+                        // text: 'string',
+                        // videoId: 'string',
+                        imageUrl: 'http://d3jubmq7nwu33f.cloudfront.net/images/c25ea33afd5545e381e0f1a92a9b5d88.jpg',
+                        // imageCaption: 'Picture of Isidro',
+                        feedType: 'image',
+                        time: 5,
+                        title: "Isidro (Monica's Older Brother)"
+                    },
+                    {
+                        // id: 'string',
+                        // text: 'string',
+                        videoId: '08a8YdJrvj8s',
+                        imageUrl: "../images/MonicasSoftSideClip.jpg",
+                        // imageCaption: 'Picture of Isidro',
+                        feedType: 'video',
+                        time: 25,
+                        title: "Monica's Soft Side"
+                    }
+                ]
+            },
+            {
+                id: '08a8YdJrvj8s',
+                url: 'http://link.theplatform.com/s/HNK2IC/media/08a8YdJrvj8s?feed=Telemundo%20Hackathon',
+                startTime: 15,
+                endTime: 45
+            }
+        ]);
 
         // init our URL handlers and the history tracker
         this.router = new Router();

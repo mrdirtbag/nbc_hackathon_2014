@@ -1,3 +1,5 @@
+/* global me */
+
 var VideoView = require('../views/video');
 var templates = require('../templates');
 var ItemView = require('../views/item');
@@ -38,15 +40,17 @@ module.exports = VideoView.extend({
     initialize: function () {
         window.fp = this;
         log('initialize');
+        me.showNav = true;
     },
 
     render: function () {
         this.renderWithTemplate();
+        var startTime = this.model.startTime;
         this.video = this.queryByHook('video');
         this.video.addEventListener('loadeddata', function () {
             log('loadeddata');
-            this.currentTime = 1800;
-            this.play();
+            this.currentTime = startTime;
+            // this.play();
         }, false);
         this.renderCollection(this.model.feed, ItemView, this.queryByHook('feed'));
         if (!this.model.feed.length) {
@@ -60,14 +64,20 @@ module.exports = VideoView.extend({
         e.preventDefault();
         e.stopPropagation();
         var video = this.video;
-        if (video.currentTime < 1800) {
-            video.currentTime = 1800;
+        if (video.currentTime < this.model.startTime) {
+            video.currentTime = this.model.startTime;
             video.play();
+            me.showNav = false;
         } else {
-            if (video.paused)
+            if (video.paused) {
                 video.play();
-            else
+                me.showNav = false;
+            }
+            else {
+                me.showNav = true;
                 video.pause();
+            }
+
         }
     },
 
@@ -78,7 +88,8 @@ module.exports = VideoView.extend({
                 return clearInterval(this.interval);
             feed.add({
                 title: _.uniqueId('item'),
-                text: 'blah blah blah blah blah and more blah'
+                text: 'blah blah blah blah blah and more blah',
+                videoId: '08a8YdJrvj8s'
             });
         }, 1000);
     }

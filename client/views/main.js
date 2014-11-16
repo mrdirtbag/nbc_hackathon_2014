@@ -8,6 +8,7 @@ var ViewSwitcher = require('ampersand-view-switcher');
 var _ = require('underscore');
 var domify = require('domify');
 var dom = require('ampersand-dom');
+var SettingsView = require('./settings');
 var templates = require('../templates');
 // var tracking = require('../helpers/metrics');
 var setFavicon = require('favicon-setter');
@@ -34,26 +35,36 @@ module.exports = View.extend({
             yes: 'login',
             no: 'logout'
         },
-        'collapse': {
+        'model.collapse': {
             type: 'booleanClass',
             hook: 'collapse-target',
             name: 'collapse'
         },
-        'menuDropdown': {
+        'model.menuDropdown': {
             type: 'booleanClass',
             hook: 'dropdown-menu',
             name: 'open'
         },
-        'rotate': {
+        'model.rotate': {
             type: 'booleanClass',
             hook: 'rotate-target',
             name: 'landscape'
         },
+        'model.showSettings': {
+            type: 'booleanClass',
+            hook: 'settings',
+            no: 'hidden'
+        },
+        'model.showNav': {
+            type: 'booleanClass',
+            hook: 'app-nav',
+            no: 'hidden'
+        }
     },
     session: {
-        collapse: ['boolean', true, true],
-        rotate: ['boolean', true, false],
-        menuDropdown: ['boolean', true, false]
+        // collapse: ['boolean', true, true],
+        // rotate: ['boolean', true, false],
+        // menuDropdown: ['boolean', true, false]
     },
     // derived: {
     //     dropdownText: {
@@ -72,6 +83,7 @@ module.exports = View.extend({
         'click [data-hook~=dropdown-toggle]': 'handleMenu',
         'click a[href]': 'handleLinkClick',
         'click a img': 'handleImgClick',
+        'click a span': 'handleSpanClick',
         'click main': 'closeNav'
     },
     render: function () {
@@ -101,6 +113,19 @@ module.exports = View.extend({
         return this;
     },
 
+    subviews: {
+        settings: {
+            hook: 'settings',
+            waitFor: 'model.showSettings',
+            prepareView: function (el) {
+                return new SettingsView({
+                    el: el,
+                    model: this.model
+                });
+            }
+        }
+    },
+
     handleNewPage: function (view) {
         // tell the view switcher to render the new one
         this.pageSwitcher.set(view);
@@ -117,6 +142,18 @@ module.exports = View.extend({
 
     handleImgClick: function (e) {
         var aTag = e.target.parentNode;
+        this._handleClick(aTag, e);
+    },
+
+    handleSpanClick: function (e) {
+        var aTag = e.target.parentNode;
+
+        if (aTag.pathname === '/settings') {
+            log('settings');
+            this.model.toggle('showSettings');
+            e.preventDefault();
+            return;
+        }
         this._handleClick(aTag, e);
     },
 
@@ -138,7 +175,7 @@ module.exports = View.extend({
         // log('handleCollapse');
         e.preventDefault();
         e.stopPropagation();
-        this.toggle('rotate');
+        this.model.toggle('rotate');
     },
 
     handleCollapse: function (e) {
@@ -146,20 +183,20 @@ module.exports = View.extend({
         e.preventDefault();
         e.stopPropagation();
         this.toggle('collapse');
-        if (this.collapse)
-            this.menuDropdown = false;
+        if (this.model.collapse)
+            this.model.menuDropdown = false;
     },
 
     handleMenu: function (e) {
         // log('handleMenu');
         e.preventDefault();
         e.stopPropagation();
-        this.toggle('menuDropdown');
+        this.model.toggle('menuDropdown');
     },
 
     closeNav: function () {
-        this.collapse = true;
-        this.menuDropdown = false;
+        this.model.collapse = true;
+        this.model.menuDropdown = false;
     },
 
     updateActiveNav: function () {

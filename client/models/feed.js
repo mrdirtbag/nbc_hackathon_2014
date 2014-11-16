@@ -12,7 +12,7 @@ module.exports = RestCollection.extend({
 
     model: Item,
 
-    // comparator: 'origAirDate',
+    comparator: 'time',
 
     initialize: function () {
         log('initialize');
