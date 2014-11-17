@@ -1,0 +1,6 @@
+https://theplatform.jira.com/wiki/display/HACKATHON/Hackathon+Home
+hackathon/hotpockets
+
+http://172.30.200.8:5000/webman/index.cgi
+hackathon/hackathon
+
