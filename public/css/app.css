@@ -118,8 +118,8 @@ video {
   height: 516px;
   position: absolute;
   top: 52px;
-  background-color: #ccc;
-  padding: 0 20px;
+  background-color: #330101;
+  margin-left: 20px;
 }
 .settings .panel-body h5 {
   margin-top: 0px;
